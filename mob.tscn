@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dknsoadxooeyx"]
+
+[ext_resource type="Texture2D" uid="uid://cbhn5cys5busq" path="res://art/enemySwimming_1.png" id="1_54opt"]
+[ext_resource type="Script" path="res://mob.gd" id="1_jervk"]
+[ext_resource type="Texture2D" uid="uid://bcu0gfvuhl4kl" path="res://art/enemySwimming_2.png" id="2_pqux5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o7guf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_54opt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pqux5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4uh1c"]
+radius = 39.0
+height = 114.0
+
+[node name="Mob" type="RigidBody2D" groups=["mobs"]]
+collision_mask = 0
+gravity_scale = 1.66533e-16
+script = ExtResource("1_jervk")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_o7guf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4uh1c")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
