@@ -44,11 +44,12 @@ func _on_mob_timer_timeout():
 
     # Add some randomness to the direction.
     direction += randf_range( - PI / 4, PI / 4)
-    mob.rotation = direction
 
     # Choose the velocity for the mob.
     var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
     mob.linear_velocity = velocity.rotated(direction)
+
+    mob.get_node("AnimatedSprite2D").flip_h = mob.linear_velocity.x > 0
 
     # Spawn the mob by adding it to the Main scene.
     add_child(mob)

@@ -1,17 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://dknsoadxooeyx"]
 
-[ext_resource type="Texture2D" uid="uid://cbhn5cys5busq" path="res://art/enemySwimming_1.png" id="1_54opt"]
 [ext_resource type="Script" path="res://mob.gd" id="1_jervk"]
-[ext_resource type="Texture2D" uid="uid://bcu0gfvuhl4kl" path="res://art/enemySwimming_2.png" id="2_pqux5"]
+[ext_resource type="Texture2D" uid="uid://b1j4sg7q51g0a" path="res://art/ghost1.png" id="2_hsaqp"]
+[ext_resource type="Texture2D" uid="uid://bgvvurpkjyf3n" path="res://art/ghost2.png" id="3_88ksi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o7guf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_54opt")
+"texture": ExtResource("2_hsaqp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_pqux5")
+"texture": ExtResource("3_88ksi")
 }],
 "loop": true,
 "name": &"default",
@@ -29,7 +29,8 @@ script = ExtResource("1_jervk")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.75, 0.75)
+texture_filter = 1
+scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_o7guf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
