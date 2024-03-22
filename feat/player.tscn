@@ -1,18 +1,18 @@
 [gd_scene load_steps=8 format=3 uid="uid://cwrf3xgjwmv1a"]
 
-[ext_resource type="Texture2D" uid="uid://x3nj06ktu6jg" path="res://art/playerGrey_walk1.png" id="1_gmwtv"]
-[ext_resource type="Script" path="res://player.gd" id="1_o7w7x"]
-[ext_resource type="Texture2D" uid="uid://dkrwr7ye6c7gq" path="res://art/playerGrey_walk2.png" id="2_jj4ir"]
-[ext_resource type="Texture2D" uid="uid://b7t2vc166qtsw" path="res://art/enemyFlyingAlt_1.png" id="4_42mxl"]
+[ext_resource type="Script" path="res://feat/player/player.gd" id="1_o7w7x"]
+[ext_resource type="Texture2D" uid="uid://x3nj06ktu6jg" path="res://assets/player/playerGrey_walk1.png" id="2_wfxus"]
+[ext_resource type="Texture2D" uid="uid://dkrwr7ye6c7gq" path="res://assets/player/playerGrey_walk2.png" id="3_aeygj"]
+[ext_resource type="Texture2D" uid="uid://b7t2vc166qtsw" path="res://assets/enemy_og/enemyFlyingAlt_1.png" id="4_c4ar6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u77nr"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_gmwtv")
+"texture": ExtResource("2_wfxus")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_jj4ir")
+"texture": ExtResource("3_aeygj")
 }],
 "loop": true,
 "name": &"walk",
@@ -27,7 +27,7 @@ height = 70.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_42mxl")
+"texture": ExtResource("4_c4ar6")
 }],
 "loop": true,
 "name": &"default",
