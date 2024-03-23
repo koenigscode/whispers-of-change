@@ -43,12 +43,13 @@ func _process(delta):
     position = position.clamp(Vector2.ZERO, screen_size)
 
     # Flip sprites
-    if cursor_pos.x < player_pos.x:
+    if cursor_pos.x > player_pos.x:
         scale.x = -1
     else:
         scale.x = 1
 
     $GunSprite.look_at(cursor_pos)
+    $GunSprite.flip_h = true
 
 func _on_body_entered(body: Node2D):
     hide() # Player disappears after being hit.

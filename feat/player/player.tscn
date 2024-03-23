@@ -1,18 +1,18 @@
 [gd_scene load_steps=8 format=3 uid="uid://cwrf3xgjwmv1a"]
 
 [ext_resource type="Script" path="res://feat/player/player.gd" id="1_o7w7x"]
-[ext_resource type="Texture2D" uid="uid://x3nj06ktu6jg" path="res://assets/player/playerGrey_walk1.png" id="2_wfxus"]
-[ext_resource type="Texture2D" uid="uid://dkrwr7ye6c7gq" path="res://assets/player/playerGrey_walk2.png" id="3_aeygj"]
-[ext_resource type="Texture2D" uid="uid://b7t2vc166qtsw" path="res://assets/enemy_og/enemyFlyingAlt_1.png" id="4_c4ar6"]
+[ext_resource type="Texture2D" uid="uid://r01wspgk7qmr" path="res://assets/ghost/ghost_green1.png" id="2_0ga3i"]
+[ext_resource type="Texture2D" uid="uid://cv1prakq0e1v1" path="res://assets/ghost/ghost_green2.png" id="3_pukax"]
+[ext_resource type="Texture2D" uid="uid://cnvkbc1x3xbsd" path="res://assets/vacuum.png" id="4_06ckk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u77nr"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_wfxus")
+"texture": ExtResource("2_0ga3i")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_aeygj")
+"texture": ExtResource("3_pukax")
 }],
 "loop": true,
 "name": &"walk",
@@ -20,14 +20,14 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_50we3"]
-radius = 28.0
-height = 70.0
+radius = 4.0
+height = 12.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j8wob"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_c4ar6")
+"texture": ExtResource("4_06ckk")
 }],
 "loop": true,
 "name": &"default",
@@ -36,10 +36,10 @@ animations = [{
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_o7w7x")
+speed = 100
 metadata/_edit_group_ = true
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_u77nr")
 animation = &"walk"
 
@@ -47,8 +47,7 @@ animation = &"walk"
 shape = SubResource("CapsuleShape2D_50we3")
 
 [node name="GunSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(50, 2.08165e-12)
-scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_j8wob")
+offset = Vector2(15, 2.08165e-12)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

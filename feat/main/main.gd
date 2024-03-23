@@ -1,6 +1,9 @@
 extends Node
 
 @export var mob_scene: PackedScene
+@export var mob_min_speed = 80.0
+@export var mob_max_speed = 100.0
+
 var score
 
 func _ready():
@@ -46,7 +49,7 @@ func _on_mob_timer_timeout():
     direction += randf_range( - PI / 4, PI / 4)
 
     # Choose the velocity for the mob.
-    var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
+    var velocity = Vector2(randf_range(mob_min_speed, mob_max_speed), 0.0)
     mob.linear_velocity = velocity.rotated(direction)
 
     mob.get_node("AnimatedSprite2D").flip_h = mob.linear_velocity.x > 0

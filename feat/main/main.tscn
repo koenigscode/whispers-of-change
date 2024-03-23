@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dp55vq30fy470"]
 
 [ext_resource type="Script" path="res://feat/main/main.gd" id="1_6dleq"]
-[ext_resource type="PackedScene" uid="uid://dknsoadxooeyx" path="res://feat/mob.tscn" id="2_epj2p"]
-[ext_resource type="PackedScene" uid="uid://cwrf3xgjwmv1a" path="res://feat/player.tscn" id="3_kn5dh"]
+[ext_resource type="PackedScene" uid="uid://dknsoadxooeyx" path="res://feat/mob/mob.tscn" id="2_epj2p"]
+[ext_resource type="PackedScene" uid="uid://cwrf3xgjwmv1a" path="res://feat/player/player.tscn" id="3_kn5dh"]
 [ext_resource type="PackedScene" uid="uid://cqd6uwo6cd02o" path="res://feat/hud/hud.tscn" id="4_exp2n"]
 
 [sub_resource type="Curve2D" id="Curve2D_g2aay"]
@@ -27,9 +27,10 @@ wait_time = 2.0
 one_shot = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(240, 450)
+position = Vector2(160, 120)
 
 [node name="MobPath" type="Path2D" parent="."]
+scale = Vector2(0.2, 0.149007)
 curve = SubResource("Curve2D_g2aay")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
