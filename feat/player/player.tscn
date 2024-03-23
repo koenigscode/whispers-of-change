@@ -1,18 +1,32 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwrf3xgjwmv1a"]
+[gd_scene load_steps=17 format=3 uid="uid://cwrf3xgjwmv1a"]
 
 [ext_resource type="Script" path="res://feat/player/player.gd" id="1_o7w7x"]
-[ext_resource type="Texture2D" uid="uid://r01wspgk7qmr" path="res://assets/ghost/ghost_green1.png" id="2_0ga3i"]
-[ext_resource type="Texture2D" uid="uid://cv1prakq0e1v1" path="res://assets/ghost/ghost_green2.png" id="3_pukax"]
-[ext_resource type="Texture2D" uid="uid://cnvkbc1x3xbsd" path="res://assets/vacuum.png" id="4_06ckk"]
+[ext_resource type="Texture2D" uid="uid://6wyf4bx7n6ly" path="res://assets/player/player1.png" id="2_h6kvt"]
+[ext_resource type="Texture2D" uid="uid://oil48awn0icj" path="res://assets/player/player2.png" id="3_bvtee"]
+[ext_resource type="Texture2D" uid="uid://dt37vti6r7gno" path="res://assets/player/player3.png" id="4_k1uua"]
+[ext_resource type="Texture2D" uid="uid://dwwphj0r1ceg5" path="res://assets/player/player4.png" id="5_c6pni"]
+[ext_resource type="Texture2D" uid="uid://yg0nd7g7ssa" path="res://assets/vacuum/vacuum_red1.png" id="6_rhywq"]
+[ext_resource type="Texture2D" uid="uid://ce3ffx1hqgqam" path="res://assets/vacuum/vacuum_red2.png" id="7_4ouh7"]
+[ext_resource type="Texture2D" uid="uid://cv01vnyxss0lf" path="res://assets/vacuum/vacuum_red3.png" id="8_vair7"]
+[ext_resource type="Texture2D" uid="uid://cj070k7eiuu2n" path="res://assets/vacuum/vacuum_red4.png" id="9_xcofc"]
+[ext_resource type="Texture2D" uid="uid://cg7m7drhit236" path="res://assets/vacuum/vacuum_red5.png" id="10_sw0ii"]
+[ext_resource type="Texture2D" uid="uid://i86q72poqwnm" path="res://assets/vacuum/vacuum_red6.png" id="11_iy0ov"]
+[ext_resource type="Texture2D" uid="uid://c4cgeb4ty65l3" path="res://assets/vacuum/vacuum_red7.png" id="12_tt7ux"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u77nr"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_0ga3i")
+"texture": ExtResource("2_h6kvt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_pukax")
+"texture": ExtResource("3_bvtee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_k1uua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c6pni")
 }],
 "loop": true,
 "name": &"walk",
@@ -26,8 +40,26 @@ height = 12.0
 [sub_resource type="SpriteFrames" id="SpriteFrames_j8wob"]
 animations = [{
 "frames": [{
+"duration": 2.0,
+"texture": ExtResource("6_rhywq")
+}, {
 "duration": 1.0,
-"texture": ExtResource("4_06ckk")
+"texture": ExtResource("7_4ouh7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vair7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xcofc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_sw0ii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_iy0ov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_tt7ux")
 }],
 "loop": true,
 "name": &"default",
@@ -52,7 +84,9 @@ shape = SubResource("CapsuleShape2D_50we3")
 
 [node name="GunSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_j8wob")
-offset = Vector2(15, 2.08165e-12)
+frame_progress = 0.0454701
+offset = Vector2(16, 2.08165e-12)
+flip_v = true
 
 [node name="gun" type="Area2D" parent="GunSprite" groups=["Gun"]]
 collision_layer = 2

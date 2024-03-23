@@ -9,6 +9,7 @@ var screen_size
 func _ready():
     hide()
     screen_size = get_viewport_rect().size
+    $GunSprite.play()
 
 func _get_velocity():
     var velocity = Vector2.ZERO
