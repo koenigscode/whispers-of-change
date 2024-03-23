@@ -50,7 +50,7 @@ func _process(delta):
     $GunSprite/CPUParticles2D.global_position = new_position
 
     var mouse_pos = get_global_mouse_position()
-    var direction = -(mouse_pos - $GunSprite/CPUParticles2D.global_position)
+    var direction = -(mouse_pos - global_position)
     var angle = direction.angle()
     $GunSprite/CPUParticles2D.rotation = angle
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dknsoadxooeyx"]
+[gd_scene load_steps=13 format=3 uid="uid://dknsoadxooeyx"]
 
 [ext_resource type="Script" path="res://feat/mob/mob.gd" id="1_jervk"]
 [ext_resource type="Texture2D" uid="uid://b1j4sg7q51g0a" path="res://assets/ghost/ghost1.png" id="2_i8jtb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ju0kv7b1pk7n" path="res://assets/ghost/ghost_blue2.png" id="3_r4ark"]
 [ext_resource type="Texture2D" uid="uid://r01wspgk7qmr" path="res://assets/ghost/ghost_green1.png" id="4_lhnle"]
 [ext_resource type="Texture2D" uid="uid://cv1prakq0e1v1" path="res://assets/ghost/ghost_green2.png" id="5_wsdxv"]
+[ext_resource type="AudioStream" uid="uid://5a2p7dxpkuvq" path="res://assets/vacuum/sucking_sound.mp3" id="8_jc2m7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o7guf"]
 animations = [{
@@ -89,6 +90,9 @@ debug_color = Color(0.85098, 0.258824, 0.67451, 0.419608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_y4ray")
+
+[node name="SuckSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_jc2m7")
 
 [connection signal="area_entered" from="detection_area" to="." method="_on_detection_area_area_entered"]
 [connection signal="area_exited" from="detection_area" to="." method="_on_detection_area_area_exited"]

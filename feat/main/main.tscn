@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dp55vq30fy470"]
+[gd_scene load_steps=8 format=3 uid="uid://dp55vq30fy470"]
 
 [ext_resource type="Script" path="res://feat/main/main.gd" id="1_6dleq"]
 [ext_resource type="PackedScene" uid="uid://dknsoadxooeyx" path="res://feat/mob/mob.tscn" id="2_epj2p"]
 [ext_resource type="PackedScene" uid="uid://cwrf3xgjwmv1a" path="res://feat/player/player.tscn" id="3_kn5dh"]
 [ext_resource type="PackedScene" uid="uid://cqd6uwo6cd02o" path="res://feat/hud/hud.tscn" id="4_exp2n"]
+[ext_resource type="PackedScene" uid="uid://wwuynn0k523s" path="res://feat/map.tscn" id="5_rgpkg"]
+[ext_resource type="AudioStream" uid="uid://5a2p7dxpkuvq" path="res://assets/vacuum/sucking_sound.mp3" id="6_w3nio"]
 
 [sub_resource type="Curve2D" id="Curve2D_g2aay"]
 _data = {
@@ -14,6 +16,9 @@ point_count = 5
 [node name="Main" type="Node"]
 script = ExtResource("1_6dleq")
 mob_scene = ExtResource("2_epj2p")
+
+[node name="TileMap" parent="." instance=ExtResource("5_rgpkg")]
+position = Vector2(112, 96)
 
 [node name="Player" parent="." instance=ExtResource("3_kn5dh")]
 
@@ -37,6 +42,9 @@ curve = SubResource("Curve2D_g2aay")
 rotation = 0.00499996
 
 [node name="HUD" parent="." instance=ExtResource("4_exp2n")]
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_w3nio")
 
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
