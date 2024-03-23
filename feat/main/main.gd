@@ -3,6 +3,10 @@ extends Node
 @export var mob_scene: PackedScene
 var score
 
+var score_red
+var score_green
+var score_blue
+
 func _ready():
 	pass
 
@@ -15,7 +19,15 @@ func new_game():
 	# remove all old mobs (from previous round)
 	get_tree().call_group("mobs", "queue_free")
 
+	$TileMap.material.set_shader_parameter("r_saturation", 0)
+	$TileMap.material.set_shader_parameter("r_saturation", 0)
+	$TileMap.material.set_shader_parameter("r_saturation", 0)
+
 	score = 0
+	score_red = 0
+	score_green = 0
+	score_blue = 0
+
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.update_score(score)
@@ -61,6 +73,16 @@ func _on_mob_timer_timeout():
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
 
-func _on_mob_died():
+func _on_mob_died(color):
+	if (color == "red"):
+		score_red += 1
+		$TileMap.material.set_shader_parameter("r_saturation", score_red)
+	elif (color == "green"):
+		score_green += 1
+		$TileMap.material.set_shader_parameter("g_saturation", score_green)
+	elif (color == "blue"):
+		score_blue += 1
+		$TileMap.material.set_shader_parameter("b_saturation", score_blue)
+
 	$DeathSound.play()
 	score += 1

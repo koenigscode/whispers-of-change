@@ -1,11 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://dp55vq30fy470"]
+[gd_scene load_steps=10 format=3 uid="uid://dp55vq30fy470"]
 
 [ext_resource type="Script" path="res://feat/main/main.gd" id="1_6dleq"]
 [ext_resource type="PackedScene" uid="uid://dknsoadxooeyx" path="res://feat/mob/mob.tscn" id="2_epj2p"]
 [ext_resource type="PackedScene" uid="uid://cwrf3xgjwmv1a" path="res://feat/player/player.tscn" id="3_kn5dh"]
 [ext_resource type="PackedScene" uid="uid://cqd6uwo6cd02o" path="res://feat/hud/hud.tscn" id="4_exp2n"]
+[ext_resource type="Shader" path="res://feat/main/rgb.gdshader" id="4_gljr0"]
 [ext_resource type="PackedScene" uid="uid://wwuynn0k523s" path="res://feat/map.tscn" id="5_rgpkg"]
 [ext_resource type="AudioStream" uid="uid://5a2p7dxpkuvq" path="res://assets/vacuum/sucking_sound.mp3" id="6_w3nio"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0616i"]
+shader = ExtResource("4_gljr0")
+shader_parameter/r_saturation = 0.0
+shader_parameter/g_saturation = 0.0
+shader_parameter/b_saturation = 0.0
 
 [sub_resource type="Curve2D" id="Curve2D_g2aay"]
 _data = {
@@ -18,6 +25,7 @@ script = ExtResource("1_6dleq")
 mob_scene = ExtResource("2_epj2p")
 
 [node name="TileMap" parent="." instance=ExtResource("5_rgpkg")]
+material = SubResource("ShaderMaterial_0616i")
 position = Vector2(112, 96)
 
 [node name="Player" parent="." instance=ExtResource("3_kn5dh")]
