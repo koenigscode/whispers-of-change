@@ -21,11 +21,12 @@ func _on_detection_area_area_entered(area: Area2D):
         player = area
         player_chase = true
 
-    if area.is_in_group("Gun"):
+    if area.is_in_group("Gun") and area.get_parent().animation == $AnimatedSprite2D.animation:
         gun_area_entered = true
         gun_area_timer = 0.0
+        print("is in lol")
 
 func _on_detection_area_area_exited(area: Area2D):
-    if area.is_in_group("Gun"):
+    if area.is_in_group("Gun") and area.get_parent().animation == $AnimatedSprite2D.animation:
         gun_area_entered = false
         gun_area_timer = 0.0

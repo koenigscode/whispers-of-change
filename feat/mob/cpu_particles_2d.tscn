@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://rjworhj1lwq4"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1v3py"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_w3gkp"]
+_data = [Vector2(0, 0.992776), 0.0, 0.0, 0, 0, Vector2(1, 0.00166714), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+show_behind_parent = true
+top_level = true
+material = SubResource("CanvasItemMaterial_1v3py")
+position = Vector2(-48, 0)
+amount = 20
+lifetime = 0.5
+speed_scale = 0.87
+randomness = 0.4
+emission_shape = 1
+emission_sphere_radius = 8.0
+spread = 0.0
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+linear_accel_min = 10.0
+linear_accel_max = 10.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_w3gkp")
+color = Color(0.858824, 0.858824, 0.858824, 1)
+anim_speed_min = 5.0
+anim_speed_max = 5.0

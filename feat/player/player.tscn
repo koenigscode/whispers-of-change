@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cwrf3xgjwmv1a"]
+[gd_scene load_steps=32 format=3 uid="uid://cwrf3xgjwmv1a"]
 
 [ext_resource type="Script" path="res://feat/player/player.gd" id="1_o7w7x"]
 [ext_resource type="Texture2D" uid="uid://6wyf4bx7n6ly" path="res://assets/player/player1.png" id="2_h6kvt"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://c567coaa8jo4j" path="res://assets/vacuum/vacuum_green5.png" id="17_glhw3"]
 [ext_resource type="Texture2D" uid="uid://djqxlqpv57nv2" path="res://assets/vacuum/vacuum_green6.png" id="18_faw6c"]
 [ext_resource type="Texture2D" uid="uid://bo08ne1d8l7ro" path="res://assets/vacuum/vacuum_green7.png" id="19_avkqc"]
+[ext_resource type="PackedScene" uid="uid://rjworhj1lwq4" path="res://feat/mob/cpu_particles_2d.tscn" id="27_o6whg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u77nr"]
 animations = [{
@@ -161,6 +162,8 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GunSprite/gun"]
 position = Vector2(26, 0)
 shape = SubResource("CircleShape2D_wd0en")
+
+[node name="CPUParticles2D" parent="GunSprite" instance=ExtResource("27_o6whg")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="area_entered" from="GunSprite/gun" to="." method="_on_area_2d_area_entered"]
