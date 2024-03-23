@@ -1,13 +1,31 @@
-extends RigidBody2D
+extends CharacterBody2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	$AnimatedSprite2D.play()
+var speed = 100
+var player_chase = false
+var player = null
+@export var health = 3
+var gun_area_timer = 0.0
+var gun_area_entered = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _physics_process(delta):
+    if player_chase:
+        position += (player.position - position) / speed
 
-# delete mobs when leave screen
-func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()
+    if gun_area_entered:
+        gun_area_timer += delta
+        if gun_area_timer >= 3.0:
+            queue_free()
+
+func _on_detection_area_area_entered(area: Area2D):
+    if area.name == "Player":
+        player = area
+        player_chase = true
+
+    if area.is_in_group("Gun"):
+        gun_area_entered = true
+        gun_area_timer = 0.0
+
+func _on_detection_area_area_exited(area: Area2D):
+    if area.is_in_group("Gun"):
+        gun_area_entered = false
+        gun_area_timer = 0.0
