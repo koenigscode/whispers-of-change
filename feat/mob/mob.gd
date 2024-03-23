@@ -3,14 +3,17 @@ extends CharacterBody2D
 signal mob_died(color)
 
 var speed = 100
-var player_chase = false
-var player = null
+@onready var player = get_node("/root/Main/Player")
 var gun_area_timer = 0.0
 var gun_area_entered = false
 
 func _physics_process(delta):
-    if player_chase:
+    if player != null:
+        $AnimatedSprite2D.flip_h = player.position.x > position.x
+
+    if player:
         position += (player.position - position) / speed
+
     scale = Vector2(1 - gun_area_timer / 10 * 2, 1 - gun_area_timer / 10 * 2)
 
     if gun_area_entered:
@@ -24,10 +27,6 @@ func _physics_process(delta):
             queue_free()
 
 func _on_detection_area_area_entered(area: Area2D):
-    if area.name == "Player":
-        player = area
-        player_chase = true
-
     if area.is_in_group("Gun") and area.get_parent().animation == $AnimatedSprite2D.animation:
         gun_area_entered = true
         gun_area_timer = 0.0
