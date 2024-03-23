@@ -1,11 +1,37 @@
-[gd_scene load_steps=8 format=3 uid="uid://dknsoadxooeyx"]
+[gd_scene load_steps=12 format=3 uid="uid://dknsoadxooeyx"]
 
 [ext_resource type="Script" path="res://feat/mob/mob.gd" id="1_jervk"]
 [ext_resource type="Texture2D" uid="uid://b1j4sg7q51g0a" path="res://assets/ghost/ghost1.png" id="2_i8jtb"]
+[ext_resource type="Texture2D" uid="uid://cplmf7srx6rh6" path="res://assets/ghost/ghost_blue1.png" id="2_jmi3c"]
 [ext_resource type="Texture2D" uid="uid://bgvvurpkjyf3n" path="res://assets/ghost/ghost2.png" id="3_6h016"]
+[ext_resource type="Texture2D" uid="uid://ju0kv7b1pk7n" path="res://assets/ghost/ghost_blue2.png" id="3_r4ark"]
+[ext_resource type="Texture2D" uid="uid://r01wspgk7qmr" path="res://assets/ghost/ghost_green1.png" id="4_lhnle"]
+[ext_resource type="Texture2D" uid="uid://cv1prakq0e1v1" path="res://assets/ghost/ghost_green2.png" id="5_wsdxv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o7guf"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jmi3c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_r4ark")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_lhnle")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wsdxv")
+}],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_i8jtb")
@@ -14,7 +40,7 @@ animations = [{
 "texture": ExtResource("3_6h016")
 }],
 "loop": true,
-"name": &"default",
+"name": &"red",
 "speed": 5.0
 }]
 
@@ -35,6 +61,7 @@ script = ExtResource("1_jervk")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_o7guf")
+animation = &"green"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(1, 0)
