@@ -4,7 +4,17 @@ extends Node
 var score
 
 func _ready():
-	pass
+	$HUD/StartButton.hide()
+	$HUD/ScoreLabel.hide()
+	await $HUD.show_message_typewriter("In the soul world where everything is\n black and white, the ghosts were tired \nof the same old dullness. So, they decided \nto invade the human world \nto steal all the colors.", 1)
+	await $HUD.show_message_typewriter("You are armed with special vacuum\n cleaners, used to suck in ghosts to \nbring their stolen colors back to the \nhuman world, making it \ncolorful and lively again.", 2)
+	await $HUD.show_message_typewriter("Use R, G and B or 1, 2 and 3 to \nchange between your vacuum cleaners.\n The red vacuum cleaner can only suck\n in the red ghosts.The blue vacuum\n cleaner is only helpful with the blue ghosts.", 3)
+	await $HUD.show_message_typewriter("The green one only deals with the\n green ghosts. Get close enough to the\n ghosts so that your vacuum cleaner\n can suck them in, controlling\n the movement with WASD.", 4)
+	$HUD/StartButton.show()
+	$HUD/ScoreLabel.show()
+	
+
+	
 
 func game_over():
 	$ScoreTimer.stop()
