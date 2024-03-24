@@ -74,10 +74,11 @@ func _process(delta):
     $GunSprite.flip_h = true
 
 func _on_body_entered(body: Node2D):
-    hide() # Player disappears after being hit.
-    hit.emit()
-    # Must be deferred as we can't change physics properties on a physics callback.
-    $CollisionShape2D.set_deferred("disabled", true)
+    if (body.is_in_group("mobs")):
+        hide() # Player disappears after being hit.
+        hit.emit()
+        # Must be deferred as we can't change physics properties on a physics callback.
+        $CollisionShape2D.set_deferred("disabled", true)
 
 func start(pos):
     position = pos
