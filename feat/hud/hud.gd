@@ -26,17 +26,14 @@ func show_message_typewriter(text, index):
 	else:
 		await get_tree().create_timer(0.5).timeout
 		$Message.hide()
-	
 
 func show_game_over():
 	show_message("Well, you died lol")
 	# Wait until the MessageTimer has counted down.
 	await $MessageTimer.timeout
 
-	$Message.text = "Blablabla lol!"
-	$Message.show()
 	# Make a one-shot timer and wait for it to finish.
-	await get_tree().create_timer(1.0).timeout
+	# await get_tree().create_timer(1.0).timeout
 	$StartButton.show()
 
 func update_score(score):
