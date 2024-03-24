@@ -15,7 +15,6 @@ func _ready():
 
 func _get_velocity():
     var velocity = Vector2.ZERO
-    print($GunSprite.animation)
     if Input.is_action_pressed("move_right"):
         velocity.x += 1
     if Input.is_action_pressed("move_left"):

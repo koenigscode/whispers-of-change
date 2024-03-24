@@ -1,5 +1,8 @@
 # Whispers of Change
 
+> [!TIP]
+> Play on [itch.io](https://koenigscode.itch.io/whispers-of-change)
+
 This game was developed as part of the [March Game Jam 2024](https://itch.io/jam/march-game-jam-2024) from Skip, Chalmers University and Gothenburg University.
 
 - Engine: Godot 4
