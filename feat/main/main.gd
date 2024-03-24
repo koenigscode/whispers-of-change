@@ -89,7 +89,7 @@ func _on_mob_died(color):
         $HUD.show_message("You restored the colors!")
         winning_message_shown = true
 
-    if score == 40:
+    if score == 50:
         $HUD.show_message("You're gonna burn your eyes! lmao")
 
     $DeathSound.play()
